@@ -12,7 +12,7 @@
             padding: 0;
         }
         .container {
-            max-width: 600px;
+            max-width: 800px;
             margin: 20px auto;
             padding: 20px;
             background-color: #fff;
@@ -36,9 +36,14 @@
             border-radius: 5px;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
         }
+        .patient {
+            font-weight: bold;
+            color: #007bff;
+        }
         li:last-child {
             margin-bottom: 0;
         }
+
     </style>
 </head>
 <body>
@@ -46,8 +51,8 @@
         <h1>Uploaded Medical Records</h1>
         <ul>
             {% for record in records %}
-                <li>{{ record.report_file.name }}</li>
-            {% empty %}
+                <li><span class="patient">{{ record.patient.name }}</span> - {{ record.report_file.name }} </li>            
+                {% empty %}
                 <li>No records uploaded.</li>
             {% endfor %}
         </ul>
